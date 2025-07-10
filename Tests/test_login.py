@@ -5,12 +5,9 @@ from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/loginData.csv")
 
-@pytest.mark.parametrize(("username", "password"), test_data)
-def test_valid_login(username, password, driver):
+@pytest.mark.parametrize(("username", "password", "expected"), test_data)
+def test_valid_login(username, password, expected, driver):
     login_page = LoginPage(driver)
-    login_page.enter_username(username)
-    login_page.enter_password(password)
-    login_page.click_login()
+    login_page.login(username, password)
+    assert login_page.get_login_result() == expected
 
-    # Need to assert here hai
-    assert "overview.htm" in driver.current_url.lower(), "Did not redirect to Account Overview page"

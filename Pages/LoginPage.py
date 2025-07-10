@@ -1,16 +1,24 @@
 from selenium.webdriver.common.by import By
 from Locators.LoginPageLocators import LoginPageLocators
+from Utils.ElementHelper import ElementHelper
 
 
-class LoginPage:
-    def __init__(self, driver):
-        self.driver = driver
+class LoginPage(ElementHelper):
+    def load(self, path=""):
+        self.driver.get(self.driver.current_url + path)
 
-    def enter_username(self, username):
-        self.driver.find_element(By.XPATH, LoginPageLocators.username_xpath).send_keys(username)
+    def login(self, username, password):
+        self.element_send_keys(LoginPageLocators.username_xpath, username)
+        self.element_send_keys(LoginPageLocators.password_xpath, password)
+        # eslai pani element helper ma yeuta wait banayera garnu parxa
+        self.element_click_call(LoginPageLocators.loginButton_xpath)
 
-    def enter_password(self, password):
-        self.driver.find_element(By.XPATH, LoginPageLocators.password_xpath).send_keys(password)
+    def is_on_overview_page(self):
+        return self.driver.current_url == "https://parabank.parasoft.com/parabank/overview.htm"
 
-    def click_login(self):
-        self.driver.find_element(By.XPATH, LoginPageLocators.loginButton_xpath).click()
+    def get_login_result(self):
+        if self.is_on_overview_page:
+            return "success"
+        elif self.is_element_present(LoginPageLocators.error_message):
+            return "failure"
+        return "unknown"
