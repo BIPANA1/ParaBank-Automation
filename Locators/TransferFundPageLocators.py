@@ -1,2 +1,2 @@
 class TransferFundPageLocators:
-    url = ""
+    url = "https://parabank.parasoft.com/parabank/transfer.htm"

@@ -1,2 +1,12 @@
 class BillPayPageLocators:
-    url = ""
+    url = "https://parabank.parasoft.com/parabank/billpay.htm"
+    payee_name="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[1]/td[2]/input"
+    address ="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[2]/td[2]/input"
+    city="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[3]/td[2]/input"
+    state="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[4]/td[2]/input"
+    zip_code="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[5]/td[2]/input"
+    phone="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[6]/td[2]/input"
+    account="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[8]/td[2]/input"
+    verify_account="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[9]/td[2]/input"
+    Amount = "/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[11]/td[2]/input"
+    from_account="/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[13]/td[2]/select"
