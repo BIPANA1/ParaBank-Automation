@@ -1,6 +1,8 @@
 from selenium.common import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
+
 
 class ElementHelper:
     def __init__(self, driver):
@@ -23,7 +25,7 @@ class ElementHelper:
     # checks if element(s) exists and is visible (returns True/False)
     def is_element_present(self, locator):
         try:
-            self.wait.until(EC.visibility_of_any_elements_located(locator))
+            self.wait.until(EC.visibility_of_element_located(locator))
             return True
         except TimeoutException:
             return False
@@ -35,3 +37,4 @@ class ElementHelper:
             return element.text
         except TimeoutException:
             return None
+

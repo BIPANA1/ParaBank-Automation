@@ -1,15 +1,23 @@
+from selenium.webdriver.common.by import By
+
+
 class RegisterPageLocators:
+    error_message = (By.ID,'customer.username.errors')
+    pw_error = (By.ID,'repeatedPassword.errors')
+    success_message = (By.XPATH, "/html/body/div[1]/div[3]/div[2]/p")
+
     url = "https://parabank.parasoft.com/parabank/register.htm"
-    register="/html/body/div[1]/div[3]/div[1]/div/p[2]/a"
-    first_name ="customer.firstName"
-    last_name ="customer.lastName"
-    address="customer.address.street"
-    city="customer.address.city"
-    state="customer.address.state"
-    zipcode="customer.address.zipCode"
-    phone ="customer.phoneNumber"
-    ssn="customer.ssn"
-    username="customer.username"
-    password="customer.password"
-    confirm_password="repeatedPassword"
+    register=(By.XPATH,'/html/body/div[1]/div[3]/div[1]/div/p[2]/a')
+    first_name =(By.ID,'customer.firstName')
+    last_name =(By.ID,'customer.lastName')
+    address=(By.ID,'customer.address.street')
+    city=(By.ID,'customer.address.city')
+    state=(By.ID,'customer.address.state')
+    zipcode=(By.ID,'customer.address.zipCode')
+    phone =(By.ID,'customer.phoneNumber')
+    ssn=(By.ID,'customer.ssn')
+    username=(By.ID,'customer.username')
+    password= (By.ID,'customer.password')
+    confirm_password=(By.ID,'repeatedPassword')
     register_button = "/html/body/div[1]/div[3]/div[2]/form/table/tbody/tr[13]/td[2]/input"
+
