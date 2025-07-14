@@ -1,42 +1,43 @@
 import pytest
-import csv
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-from Pages.BillPayPage import BillPayPage
 from Pages.LoginPage import LoginPage
+from Pages.BillPayPage import BillPayPage
+from Locators.BillPayPageLocators import BillPayPageLocators
+from Utils.FileHelper import read_csv
 
-def read_csv(file_path):
-    with open(file_path, mode='r') as file:
-        reader = csv.DictReader(file)
-        return list(reader)
+test_data = read_csv("Data/BillPayPageData.csv")
 
-@pytest.mark.parametrize("data", read_csv("Data/BillPayPageData.csv"))
-def test_bill_pay(driver, data):
-    username = "shyam2"
-    password = "shyam"
+@pytest.mark.parametrize((
+    "payee_name", "address", "city", "state", "zip_code", "phone",
+    "account_number", "verify_account_number", "amount", "from_account", "expected"
+), test_data)
+def test_bill_pay(payee_name, address, city, state, zip_code, phone,
+                  account_number, verify_account_number, amount, from_account, expected, driver):
 
     login_page = LoginPage(driver)
-    login_page.login(username, password)
+    login_page.login("shyam2", "shyam")
 
     bill_pay_page = BillPayPage(driver)
     bill_pay_page.load()
 
-    bill_pay_page.enter_payee_information(
-        data["payee_name"],
-        data["address"],
-        data["city"],
-        data["state"],
-        data["zip_code"],
-        data["phone"]
-    )
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(BillPayPageLocators.bill_pay_menu)
+    ).click()
 
-    bill_pay_page.enter_account_information(
-        data["account_number"],
-        data["verify_account_number"],
-        data["amount"],
-        data["from_account"]
-    )
-
+    bill_pay_page.enter_payee_information(payee_name, address, city, state, zip_code, phone)
+    bill_pay_page.enter_account_information(account_number, verify_account_number, amount, from_account)
     bill_pay_page.send_payment()
 
-    assert bill_pay_page.has_success_message() == data["expected"]
+    # Enhanced logic to detect outcome:
+    if bill_pay_page.has_verify_account_mismatch_error():
+        result = "failure"
+    elif bill_pay_page.has_negative_amount_error():
+        result = "failure"
+    elif bill_pay_page.has_success_message():
+        result = "success"
+    else:
+        result = "failure"
 
+    assert result == expected
