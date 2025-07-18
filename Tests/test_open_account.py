@@ -33,6 +33,6 @@ def test_open_new_account(account_type, expected_result, driver):
     if result:
         actual_result = result
     else:
-        actual_result = open_account_page.get_open_account_result()
+        actual_result = open_account_page.get_transaction_result()
 
     assert actual_result == expected_result, f"Expected '{expected_result}', but got '{actual_result}'"
