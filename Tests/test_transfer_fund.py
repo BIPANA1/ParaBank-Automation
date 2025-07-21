@@ -10,7 +10,7 @@ test_data = read_csv("Data/transferFunds.csv")
 def test_transfer_fund(amount, expected, driver):
     # Step 1: Log in
     login_page = LoginPage(driver)
-    login_page.login("bipana", "1234")
+    login_page.login("Lara", "1234")
 
     # Step 2: Perform transaction
     transfer_page = TransferFundsPage(driver)

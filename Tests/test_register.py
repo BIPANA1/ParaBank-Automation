@@ -6,6 +6,8 @@ from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/registerData.csv")
 
+@pytest.mark.order(1)
+
 @pytest.mark.parametrize(("firstname", "lastname","address","city","state","zipcode","phone","ssn","username","password","confirm_password","expected"), test_data)
 def test_register(firstname,lastname,address,city,state,zipcode,phone,ssn,username,password,confirm_password,expected, driver):
     register_page = RegisterPage(driver)

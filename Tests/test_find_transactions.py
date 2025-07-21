@@ -8,8 +8,8 @@ test_data = read_csv("Data/findTxnData.csv")
 
 @pytest.mark.parametrize(("search_type", "value1", "value2", "expected"), test_data)
 def test_find_transactions(search_type, value1, value2, expected, driver):
-    username = "annie"
-    password = "annie123"
+    username = "Lara"
+    password = "1234"
 
     login_page = LoginPage(driver)
     login_page.login(username, password)

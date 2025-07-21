@@ -1,5 +1,13 @@
 firstname,lastname,address,city,state,zipcode,phone,ssn,username,password,confirm_password,expected
-Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,871,Laradel1,Laradel123,Laradel123,success
-Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,871,Laradel1,Laradel123,Laradel123,failure
+Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,871,Lara,1234,1234,success
+Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,871,Lara,Laradel123,Laradel12,failure
 Bimo,Shrestha,Dharan,Nepal,532,5E122W,9878713245,871,Bimo,bimo123,bimo123,failure
 Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,1234,Lara,Lara123,LaraDel123,failure
+,Del,Kathmandu,Nepal,223,5E6542W,9876513245,871,Lara,1234,1234,failure
+Lara,,Kathmandu,Nepal,223,5E6542W,9876513245,871,Lara,1234,1234,failure
+Lara,Del,,Nepal,223,5E6542W,9876513245,871,Lara,1234,1234,failure
+Lara,Del,Kathmandu,,223,5E6542W,9876513245,871,Lara,1234,1234,failure
+Lara,Del,Kathmandu,Nepal,,5E6542W,9876513245,871,Lara,1234,1234,failure
+Lara,Del,Kathmandu,Nepal,223,,9876513245,871,Lara,1234,1234,failure
+Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,,Lara,1234,1234,failure
+Lara,Del,Kathmandu,Nepal,223,5E6542W,9876513245,871,,1234,1234,failure

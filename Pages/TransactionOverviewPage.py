@@ -1,3 +1,5 @@
+from operator import index
+
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -16,10 +18,7 @@ class TransactionOverviewPage(ElementHelper):
             # Account Overview tab ma click garne
             self.element_click_call(TransferFundPageLocators.account_overview)
 
-            # Account table visible hunu samma wait garne
-            WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located(TransferFundPageLocators.account_table)
-            )
+            self.get_element_text(TransferFundPageLocators.account_table)
 
             # Specific index ko account balance nikalne (1-based indexing)
             balance_locator = (
@@ -44,19 +43,8 @@ class TransactionOverviewPage(ElementHelper):
             # Amount enter garne
             self.element_send_keys(TransferFundPageLocators.amount, amount)
 
-            # From Account dropdown ready hune samma wait garne
-            WebDriverWait(self.driver, 10).until(
-                lambda d: len(Select(d.find_element(*TransferFundPageLocators.from_account)).options) > 1
-            )
-            # Sender account select garne (index 1)
-            Select(self.driver.find_element(*TransferFundPageLocators.from_account)).select_by_index(1)
-
-            # To Account dropdown ready hune samma wait garne
-            WebDriverWait(self.driver, 10).until(
-                lambda d: len(Select(d.find_element(*TransferFundPageLocators.to_account)).options) > 0
-            )
-            # Receiver account select garne (index 0)
-            Select(self.driver.find_element(*TransferFundPageLocators.to_account)).select_by_index(0)
+            self.wait_for_dropdown_and_select_by_index(TransferFundPageLocators.from_account, index=1, min_options = 2)
+            self.wait_for_dropdown_and_select_by_index(TransferFundPageLocators.to_account, index=0)
 
             # Transfer button click garne
             self.element_click_call(TransferFundPageLocators.transfer_button)

@@ -7,11 +7,13 @@ from Utils.ElementHelper import ElementHelper
 class OpenAccountPage(ElementHelper):
     def open_account(self, account_type_text):
         self.element_click_call(OpenNewAccPageLocators.new_account)
+        self.is_element_present(OpenNewAccPageLocators.account_type)
+        self.wait_for_dropdown_and_select_by_index(OpenNewAccPageLocators.account_number, index=0)
 
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(OpenNewAccPageLocators.account_type))
-        WebDriverWait(self.driver, 10).until(
-            lambda d: len(Select(d.find_element(*OpenNewAccPageLocators.account_number)).options) > 0
-        )
+        # WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(OpenNewAccPageLocators.account_type))
+        # WebDriverWait(self.driver, 10).until(
+        #     lambda d: len(Select(d.find_element(*OpenNewAccPageLocators.account_number)).options) > 0
+        # )
 
         # Handle blank or invalid account_type
         if not account_type_text.strip():

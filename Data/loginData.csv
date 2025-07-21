@@ -1,5 +1,5 @@
 username,password,expected
-annie,annie123,success
+Lara,1234,success
 fakeName,fakePw,failure
 ,annie123,failure
 annie,,failure
