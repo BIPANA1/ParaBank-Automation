@@ -4,6 +4,7 @@ class RegisterPageLocators:
     error_message = (By.ID, 'customer.username.errors')
     pw_error = (By.ID, 'repeatedPassword.errors')
     success_message_class = (By.XPATH, '/html/body/div[1]/div[3]/div[2]/h1')
+    error = (By.CLASS_NAME,'error')
 
     # error_message = (By.ID,'customer.username.errors')
     # pw_error = (By.ID,'repeatedPassword.errors')

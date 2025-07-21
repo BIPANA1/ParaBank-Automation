@@ -5,7 +5,7 @@ from Pages.AccountOverviewPage import AccountOverviewPage
 def test_account_overview_fetch(driver):
     # Step 1: Log in
     login_page = LoginPage(driver)
-    login_page.login("bipana", "1234")
+    login_page.login("Lara", "1234")
 
     # Step 2: Fetch account info
     overview_page = AccountOverviewPage(driver)

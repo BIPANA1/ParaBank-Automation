@@ -10,7 +10,7 @@ test_data = read_csv("Data/transferOverview.csv")
 def test_transfer_and_validate_balance(amount, expected, driver):
     # Step 1: Login
     login_page = LoginPage(driver)
-    login_page.login("bipana", "1234")
+    login_page.login("Lara", "1234")
 
     # Step 2: Get initial balance from AccountOverviewPage
     account_page = AccountOverviewPage(driver)

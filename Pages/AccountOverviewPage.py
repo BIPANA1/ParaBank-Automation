@@ -23,6 +23,13 @@ class AccountOverviewPage(ElementHelper):
                 EC.presence_of_element_located(AccountOverviewPageLocators.available_balance)
             )
 
+            # balance_id = WebDriverWait(self.driver,5).until(
+            #     EC.presence_of_element_located(AccountOverviewPageLocators.account_id)
+            # )
+            #
+
+
+
             # Extract and clean values
             account_number = account_element.text.strip()
             available_balance_text = balance_element.text.replace("$", "").replace(",", "").strip()

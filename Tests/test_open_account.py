@@ -8,11 +8,12 @@ from Pages.OpenNewAccountPage import OpenAccountPage
 from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/newAccountData.csv")
+@pytest.mark.order(3)
 
 @pytest.mark.parametrize(("account_type", "expected_result"), test_data)
 def test_open_new_account(account_type, expected_result, driver):
     login_page = LoginPage(driver)
-    login_page.login("bipana", "1234")
+    login_page.login("Lara", "1234")
 
     open_account_page = OpenAccountPage(driver)
 

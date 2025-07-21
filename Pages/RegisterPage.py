@@ -28,12 +28,12 @@ class RegisterPage(ElementHelper):
 
 
     def get_register_result(self):
-        if self.is_element_present(RegisterPageLocators.error_message):
+        if self.is_element_present(RegisterPageLocators.error):
             return "failure"
-        elif self.is_element_present(RegisterPageLocators.pw_error):  # more precise check
-            return "failure"
-        elif self.get_element_text(RegisterPageLocators.pw_error) == "Passwords did not match.":
-            return "failure"
+        # elif self.is_element_present(RegisterPageLocators.pw_error):  # more precise check
+        #     return "failure"
+        # elif self.get_element_text(RegisterPageLocators.pw_error) == "Passwords did not match.":
+        #     return "failure"
         elif self.is_element_present(RegisterPageLocators.success_message_class):
             return "success"
         else:

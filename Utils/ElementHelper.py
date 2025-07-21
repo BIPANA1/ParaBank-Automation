@@ -37,3 +37,12 @@ class ElementHelper:
             return element.text
         except TimeoutException:
             return None
+
+    def wait_for_dropdown_and_select_by_index(self, locator, index=0, min_options=1, timeout=10):
+        try:
+            WebDriverWait(self.driver,timeout).until(
+                lambda d:len(Select(d.find_element(*locator)).options) >= min_options
+            )
+            Select(self.driver.find_element(*locator)).select_by_index(index)
+        except TimeoutException:
+            raise Exception(f"Dropdown {locator} did not load {min_options} options.")
