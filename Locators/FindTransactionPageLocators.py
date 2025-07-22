@@ -24,3 +24,4 @@ class FindTransactionPageLocators:
     # misc
     error_message = (By.CLASS_NAME, "error")
     transaction_rows = (By.CSS_SELECTOR, "#transactionBody tr")
+

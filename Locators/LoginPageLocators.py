@@ -7,3 +7,4 @@ class LoginPageLocators:
     password_xpath = (By.XPATH, '/html/body/div[1]/div[3]/div[1]/div/form/div[2]/input')
     loginButton_xpath = (By.XPATH, '/html/body/div[1]/div[3]/div[1]/div/form/div[3]/input')
     error_message = (By.CLASS_NAME, "error")
+

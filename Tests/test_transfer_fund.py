@@ -4,7 +4,7 @@ from Pages.TransferFundsPage import  TransferFundsPage
 from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/transferFunds.csv")
-
+@pytest.mark.order(4)
 @pytest.mark.parametrize((
     "amount", "expected"),test_data)
 def test_transfer_fund(amount, expected, driver):

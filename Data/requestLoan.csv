@@ -1,4 +1,4 @@
 loan_amount,down_payment,account_index,expected
-500,100,0,Pass
-5000,2500,0,Fail
-200,300,0,Fail
+50,10,1,Pass
+500,1000,0,Fail
+5,500,0,Fail

@@ -5,7 +5,7 @@ from Pages.AccountOverviewPage import AccountOverviewPage
 from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/transferOverview.csv")
-
+@pytest.mark.order(4)
 @pytest.mark.parametrize(("amount", "expected"), test_data)
 def test_transfer_and_validate_balance(amount, expected, driver):
     # Step 1: Login

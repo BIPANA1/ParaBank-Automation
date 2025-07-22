@@ -5,11 +5,6 @@ class RegisterPageLocators:
     pw_error = (By.ID, 'repeatedPassword.errors')
     success_message_class = (By.XPATH, '/html/body/div[1]/div[3]/div[2]/h1')
     error = (By.CLASS_NAME,'error')
-
-    # error_message = (By.ID,'customer.username.errors')
-    # pw_error = (By.ID,'repeatedPassword.errors')
-    # # success_message = (By.XPATH, "/html/body/div[1]/div[3]/div[2]/p")
-    # success_message = (By.XPATH,"/html/body/div[1]/div[3]/div[2]/h1")
     url = "https://parabank.parasoft.com/parabank/register.htm"
     register=(By.XPATH,'/html/body/div[1]/div[3]/div[1]/div/p[2]/a')
     first_name =(By.ID,'customer.firstName')
@@ -24,4 +19,5 @@ class RegisterPageLocators:
     password= (By.ID,'customer.password')
     confirm_password=(By.ID,'repeatedPassword')
     register_button = (By.XPATH, "/html/body/div[1]/div[3]/div[2]/form/table/tbody/tr[13]/td[2]/input")
+
 

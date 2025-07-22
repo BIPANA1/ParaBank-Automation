@@ -1,21 +1,3 @@
-# from Locators.RequestLoanPageLocators import RequestLoanPageLocators
-# from Utils.ElementHelper import ElementHelper
-#
-#
-# class RequestLoanPage(ElementHelper):
-#     def request_loan(self):
-#         self.driver.get(RequestLoanPageLocators.url)
-#
-#     def loan_pay(self,loan_amount):
-#         self.driver.click_call(RequestLoanPageLocators.transfer_click)
-#         self.driver.send_keys(RequestLoanPageLocators.loan_amount,loan_amount)
-#
-#     def down_pay(self,down_payment):
-#         self.driver.click_call(RequestLoanPageLocators.transfer_click)
-#         self.driver.send_keys(RequestLoanPageLocators.loan_amount,down_payment)
-#
-#
-#
 import time
 
 from selenium.webdriver.support.select import Select
@@ -59,6 +41,9 @@ class RequestLoanPage(ElementHelper):
     def apply_loan(self):
         """Click the apply button to submit the loan form."""
         self.element_click_call(RequestLoanPageLocators.apply_button)
+        time.sleep(2)
+    def logout (self):
+        self.element_click_call(RequestLoanPageLocators.logout)
         time.sleep(2)
 
     def check_loan_result(self):
