@@ -18,4 +18,3 @@ class TransferFundPageLocators:
     account_overview= (By.XPATH,"/html/body/div[1]/div[3]/div[1]/ul/li[2]/a")
     account_table = (By.ID,'accountTable')
     table_index=(By.XPATH,'//*[@id="accountTable"]/tbody/tr[1]/td[3]')
-

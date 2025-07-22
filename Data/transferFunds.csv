@@ -1,6 +1,6 @@
 amount,expected
-200,success
+5,success
 ,failure
 0,failure
 abc,failure
--100,failure
+-5,failure

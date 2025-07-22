@@ -5,7 +5,7 @@ from Pages.LoginPage import LoginPage
 from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/findTxnData.csv")
-
+@pytest.mark.order(6)
 @pytest.mark.parametrize(("search_type", "value1", "value2", "expected"), test_data)
 def test_find_transactions(search_type, value1, value2, expected, driver):
     username = "Lara"

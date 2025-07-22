@@ -9,7 +9,7 @@ from Pages.BillPayPage import BillPayPage
 from Utils.FileHelper import read_csv
 
 test_data = read_csv("Data/BillPayPageData.csv")
-
+@pytest.mark.order(5)
 @pytest.mark.parametrize((
     "payee_name", "address", "city", "state", "zip_code", "phone",
     "account_number", "verify_account_number", "amount", "from_account", "expected"

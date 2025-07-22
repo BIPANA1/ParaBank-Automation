@@ -16,6 +16,5 @@ def test_account_overview_fetch(driver):
     print(f"Account Number: {account_number if account_number else 'Not found'}")
     print(f"Available Balance: ₹{available_balance if available_balance is not None else 'Unavailable'}")
 
-    # Optional sanity check
     assert account_number is not None, "Account number not found."
     assert available_balance is not None, "Available balance could not be fetched."

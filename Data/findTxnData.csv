@@ -1,5 +1,5 @@
 search_type,value1,value2,expected
 transaction_id,12345,,success
-date,07-18-2025,,success
-date_range,07-10-2025,07-18-2025,success
-amount,111,,success
+date,07-22-2025,,success
+date_range,07-22-2025,07-22-2025,success
+amount,-5,,success
